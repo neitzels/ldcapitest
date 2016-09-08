@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+var geocodingAPI = "http:https://api.airtable.com/v0/appJ3YWZqQgzEj89X/testtable?api_key=keyVEZR5cv3S1lEQj";
+
+$.getJSON(geocodingAPI, function (json) {
+
+    // Set the variables from the results array
+    var address = json.records[0].fields.Address;
+    var latitude = json.records[0].fields.Latitude;
+    var longitude = json.records[0].fields.Longitude;
+
+    // Set the table td text
+    $('#address').text(address);
+    $('#latitude').text(latitude);
+    $('#longitude').text(longitude);
+});
+
+</script>
+</head>
+<body>
+
+<div id="body">
+    
+<h1>Parse JSON data using jQuery.getJSON()</h1>
+
+    <hr/>
+    <table border="1">
+        <tr>
+            <td>Address:</td>
+            <td id="address"></td>
+        </tr>
+        <tr>
+            <td>Latitude:</td>
+            <td id="latitude"></td>
+        </tr>
+        <tr>
+            <td>Latitude:</td>
+            <td id="longitude"></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
